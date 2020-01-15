@@ -27,10 +27,24 @@ class HashTable {
       }
     } else return undefined;
   }
+
+  keys() {
+    const keysArr = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        const currEntry = this.data[i];
+        for (let j = 0; j < currEntry.length; j++) {
+          keysArr.push(currEntry[j][0]);
+        }
+      }
+    }
+    return keysArr;
+  }
 }
 
-const myHashTable = new HashTable(50);
+const myHashTable = new HashTable(20);
 myHashTable.set("grapes", 10000);
-myHashTable.get("grapes");
 myHashTable.set("apples", 9);
+myHashTable.set("orange", 1);
 myHashTable.get("apples");
+myHashTable.keys();
